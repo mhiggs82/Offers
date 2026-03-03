@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ParentWise — Offerings</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --purple: #6B4CA3;
+      --purple-light: #9B7ED4;
+      --purple-glow: rgba(107, 76, 163, 0.35);
+      --cream: #F5F1E8;
+      --cream-dim: rgba(245, 241, 232, 0.7);
+      --cream-dimmer: rgba(245, 241, 232, 0.45);
+      --black: #1A1A1A;
+      --card-bg: #242424;
+      --card-border: rgba(107, 76, 163, 0.2);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--black);
+      color: var(--cream);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+    .hero {
+      text-align: center;
+      padding: 100px 24px 72px;
+      max-width: 820px;
+      margin: 0 auto;
+      animation: fadeUp 0.8s ease both;
+    }
+    .hero h1 {
+      font-family: 'DM Sans', sans-serif;
+      font-size: clamp(2.2rem, 5.5vw, 3.8rem);
+      font-weight: 600;
+      line-height: 1.15;
+      margin-bottom: 20px;
+      color: var(--cream);
+    }
+    .hero h1 .accent { color: var(--purple-light); }
+    .hero p {
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: var(--cream-dim);
+      max-width: 580px;
+      margin: 0 auto 48px;
+    }
+    .hero-cta {
+      display: inline-block;
+      padding: 20px 56px;
+      background: var(--purple);
+      color: var(--cream);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 6px;
+      transition: background 0.25s ease, box-shadow 0.25s ease;
+      box-shadow: 0 0 32px var(--purple-glow);
+    }
+    .hero-cta:hover {
+      background: var(--purple-light);
+      box-shadow: 0 0 48px rgba(107, 76, 163, 0.6);
+    }
+    .solutions {
+      padding: 80px 24px 120px;
+      max-width: 1100px;
+      margin: 0 auto;
+      animation: fadeUp 0.8s 0.15s ease both;
+    }
+    .solutions h2 {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      text-align: center;
+      color: var(--cream);
+      margin-bottom: 56px;
+    }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 40px 32px 36px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 60px rgba(107, 76, 163, 0.2);
+      border-color: rgba(107, 76, 163, 0.45);
+    }
+    .card.featured {
+      border-color: var(--purple);
+      box-shadow: 0 0 0 1px var(--purple);
+    }
+    .card.featured:hover {
+      box-shadow: 0 0 0 1px var(--purple), 0 20px 60px rgba(107, 76, 163, 0.35);
+    }
+    .card-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 12px;
+      background: rgba(107, 76, 163, 0.18);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+      font-size: 1.5rem;
+    }
+    .badge {
+      display: inline-block;
+      background: rgba(107, 76, 163, 0.25);
+      color: var(--purple-light);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 20px;
+      margin-bottom: 12px;
+      width: fit-content;
+    }
+    .card h3 {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--cream);
+      margin-bottom: 8px;
+    }
+    .card-price {
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: var(--purple-light);
+      margin-bottom: 6px;
+    }
+    .card-tagline {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--cream);
+      margin-bottom: 16px;
+    }
+    .card p {
+      font-size: 0.9rem;
+      line-height: 1.7;
+      color: var(--cream-dimmer);
+      flex: 1;
+      margin-bottom: 32px;
+    }
+    .btn {
+      display: block;
+      text-align: center;
+      padding: 14px 24px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 6px;
+      transition: all 0.25s ease;
+      border: 1px solid rgba(107, 76, 163, 0.5);
+      color: var(--cream);
+      background: transparent;
+      margin-top: auto;
+    }
+    .btn:hover {
+      border-color: var(--purple-light);
+      background: rgba(107, 76, 163, 0.15);
+    }
+    .btn-filled {
+      background: var(--purple);
+      border-color: var(--purple);
+      box-shadow: 0 0 24px var(--purple-glow);
+    }
+    .btn-filled:hover {
+      background: var(--purple-light);
+      border-color: var(--purple-light);
+      box-shadow: 0 0 36px rgba(107, 76, 163, 0.5);
+    }
+    footer {
+      text-align: center;
+      padding: 40px 24px 60px;
+      border-top: 1px solid rgba(107, 76, 163, 0.15);
+    }
+    .logo-wrap {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .logo-text {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--cream);
+      letter-spacing: 0.04em;
+    }
+    .logo-text span { color: var(--purple-light); }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @media (max-width: 900px) {
+      .cards { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
+    }
+    @media (max-width: 640px) {
+      .hero { padding: 72px 24px 56px; }
+      .hero-cta { padding: 18px 32px; font-size: 11px; }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="hero">
+    <h1>Your teen's security starts<br>with <span class="accent">yours.</span></h1>
+    <p>Science-backed guidance for entrepreneurial parents raising teens. The work starts with you.</p>
+    <a href="#" class="hero-cta">Get Your Free 30-Day Secure Parenting Insights Series</a>
+  </section>
+
+  <section class="solutions">
+    <h2>Our Solutions to Create Security During Adolescence</h2>
+    <div class="cards">
+
+      <div class="card">
+        <div class="card-icon">🌱</div>
+        <h3>ParentWise First Steps</h3>
+        <div class="card-price">Free*</div>
+        <div class="card-tagline">A Tiny 5-Day 1:1 Challenge</div>
+        <p>A 5-day, 1:1 challenge to get you started with secure parenting. Free when you donate to a charity of your choice.</p>
+        <a href="#" class="btn">Learn More</a>
+      </div>
+
+      <div class="card featured">
+        <div class="card-icon">🤝</div>
+        <div class="badge">Most Popular</div>
+        <h3>The Secure Parent Circle</h3>
+        <div class="card-price">$47/mo</div>
+        <div class="card-tagline">Community Membership</div>
+        <p>A private community for entrepreneurial parents navigating the teen years. Monthly live calls, expert resources, and honest conversation with parents who are doing the same work.</p>
+        <a href="#" class="btn btn-filled">Learn More</a>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">🧭</div>
+        <h3>Your ParentWise Pathway</h3>
+        <div class="card-price">From $3K</div>
+        <div class="card-tagline">90-Day 1:1 Journey</div>
+        <p>A 90-day 1:1 journey built around your family, your patterns, and your goals. No templates. Just focused work on what actually matters to you and your teen.</p>
+        <a href="#" class="btn">Learn More</a>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <div class="logo-wrap">
+      <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="14" cy="14" r="13" stroke="#6B4CA3" stroke-width="1.5"/>
+        <path d="M8 19 C8 12, 14 8, 20 13 C20 19, 14 22, 8 19Z" fill="#6B4CA3" opacity="0.75"/>
+        <circle cx="14" cy="11.5" r="2.8" fill="#9B7ED4"/>
+      </svg>
+      <span class="logo-text">Parent<span>Wise</span></span>
+    </div>
+  </footer>
+
+</body>
+</html>
