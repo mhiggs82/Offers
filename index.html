@@ -68,8 +68,85 @@
       background: var(--purple-light);
       box-shadow: 0 0 48px rgba(107, 76, 163, 0.6);
     }
+
+    /* ── Testimonials ── */
+    .testimonials {
+      padding: 0 24px 80px;
+      max-width: 900px;
+      margin: 0 auto;
+      animation: fadeUp 0.8s 0.1s ease both;
+    }
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .testimonial-card {
+      background: #1f1f1f;
+      border: 1px solid rgba(107, 76, 163, 0.18);
+      border-radius: 12px;
+      padding: 28px 28px 24px;
+      position: relative;
+    }
+    .testimonial-card::before {
+      content: '"';
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 5rem;
+      line-height: 1;
+      color: var(--purple);
+      opacity: 0.35;
+      position: absolute;
+      top: 12px;
+      left: 22px;
+    }
+    .testimonial-before-after {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+    .t-label {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 20px;
+      display: inline-block;
+      width: fit-content;
+      margin-bottom: 4px;
+    }
+    .t-label.before {
+      background: rgba(245, 241, 232, 0.08);
+      color: var(--cream-dim);
+    }
+    .t-label.after {
+      background: rgba(107, 76, 163, 0.2);
+      color: var(--purple-light);
+    }
+    .t-text {
+      font-size: 0.88rem;
+      line-height: 1.65;
+      color: var(--cream-dim);
+      padding-top: 2px;
+    }
+    .t-text.after-text {
+      color: var(--cream);
+    }
+    .t-divider {
+      border: none;
+      border-top: 1px solid rgba(107, 76, 163, 0.15);
+      margin: 2px 0 10px;
+    }
+    .testimonial-attribution {
+      font-size: 0.78rem;
+      color: var(--cream-dimmer);
+      font-style: italic;
+    }
+
+    /* ── Solutions ── */
     .solutions {
-      padding: 80px 24px 120px;
+      padding: 0 24px 120px;
       max-width: 1100px;
       margin: 0 auto;
       animation: fadeUp 0.8s 0.15s ease both;
@@ -189,6 +266,8 @@
       border-color: var(--purple-light);
       box-shadow: 0 0 36px rgba(107, 76, 163, 0.5);
     }
+
+    /* ── Footer ── */
     footer {
       text-align: center;
       padding: 40px 24px 60px;
@@ -198,6 +277,7 @@
       display: inline-flex;
       align-items: center;
       gap: 10px;
+      margin-bottom: 14px;
     }
     .logo-text {
       font-family: 'DM Sans', sans-serif;
@@ -207,12 +287,21 @@
       letter-spacing: 0.04em;
     }
     .logo-text span { color: var(--purple-light); }
+    .founder-note {
+      font-size: 0.8rem;
+      color: var(--cream-dimmer);
+      line-height: 1.6;
+      max-width: 460px;
+      margin: 0 auto;
+    }
+
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(20px); }
       to   { opacity: 1; transform: translateY(0); }
     }
     @media (max-width: 900px) {
       .cards { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
+      .testimonials-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
     }
     @media (max-width: 640px) {
       .hero { padding: 72px 24px 56px; }
@@ -223,7 +312,7 @@
 <body>
 
   <section class="hero">
-    <h1>Your teen's future security, <span class="accent">starts with yours today.<span></h1>
+    <h1>Your teen's future security, <span class="accent">starts with yours today.</span></h1>
     <p>Science-backed guidance for entrepreneurial parents raising teens. The work starts with you.</p>
     <a href="#" class="hero-cta">Get Your Free 30-Day Secure Parenting Insights Series</a>
   </section>
@@ -235,10 +324,10 @@
       <div class="card">
         <div class="card-icon">🌱</div>
         <h3>ParentWise First Steps</h3>
-        <div class="card-price">Free*</div>
+        <div class="card-price">Free</div>
         <div class="card-tagline">A Tiny 5-Day 1:1 Challenge</div>
-        <p>A 5-day, 1:1 challenge to start you on the path of secure parenting. Free with a  $50 donation to a charity of your choice.</p>
-        <a href="#" class="btn">Learn More</a>
+        <p>A 5-day, 1:1 challenge to start you on the path of secure parenting. Begin where every real change begins — with you.</p>
+        <a href="#" class="btn">Start My 5-Day Challenge</a>
       </div>
 
       <div class="card featured">
@@ -248,7 +337,7 @@
         <div class="card-price">$47/mo</div>
         <div class="card-tagline">Community Membership</div>
         <p>A worldwide community of parents committed to their own growth first. Because secure parents raise secure teens.</p>
-        <a href="#" class="btn btn-filled">Learn More</a>
+        <a href="#" class="btn btn-filled">Join the Circle</a>
       </div>
 
       <div class="card">
@@ -256,8 +345,8 @@
         <h3>Your ParentWise Pathway</h3>
         <div class="card-price">From $3K</div>
         <div class="card-tagline">90-Day 1:1 Journey</div>
-        <p>A 90-day 1:1 journey resulting in foundation for a flourishing relationship with your teenager within 90 days. Built around your family, your patterns, and your goals.</p>
-        <a href="#" class="btn">Learn More</a>
+        <p>Understand the drift so it doesn't become distance. A 90-day 1:1 journey built around your family, your patterns, and your goals.</p>
+        <a href="#" class="btn">Explore My Pathway</a>
       </div>
 
     </div>
@@ -267,6 +356,9 @@
     <div class="logo-wrap">
       <span class="logo-text">Parent<span>Wise</span></span>
     </div>
+    <p class="founder-note">
+      Founded by M. Aurelius Higgs — educator, coach, and global practitioner with over 20 years working with families across South Korea, Spain, Saudi Arabia, Thailand, and beyond.
+    </p>
   </footer>
 
 </body>
